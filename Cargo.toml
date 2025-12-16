@@ -1,0 +1,33 @@
+[package]
+name = "transpanea"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+
+[package.metadata.bundle]
+name = "Transpanea"
+identifier = "net.prgrsv.transpanea"
+icon = ["icons/512x512.png"]
+
+[build-dependencies]
+ico = "0.5.0"
+tempfile = "3.23.0"
+winresource = "0.1.28"
+
+[dependencies]
+anyhow = { version = "1.0.100", features = ["backtrace"] }
+futures = "0.3.31"
+gpui = "0.2.2"
+raw-window-handle = "0.6.2"
+smol = "2.0.2"
+tray-icon = "0.21.2"
+
+[target.'cfg(target_os = "windows")'.dependencies]
+windows = { version = "0.62.2", features = [
+    "Win32_Graphics_Dwm",
+    "Win32_Graphics_Gdi",
+    "Win32_System_Threading",
+    "Win32_UI_HiDpi",
+    "Win32_UI_Shell",
+    "Win32_UI_WindowsAndMessaging",
+] }
